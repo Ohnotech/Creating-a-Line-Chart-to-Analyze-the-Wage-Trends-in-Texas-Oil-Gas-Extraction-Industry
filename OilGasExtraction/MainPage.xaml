@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+              xmlns:chart="clr-namespace:Syncfusion.Maui.Charts;assembly=Syncfusion.Maui.Charts"
+             xmlns:local="clr-namespace:OilGasExtraction"
+             x:Class="OilGasExtraction.MainPage">
+
+
+    <Border StrokeShape="RoundRectangle 5" 
+              StrokeThickness="1"
+              Stroke="Black"
+              Margin="{OnPlatform WinUI='20, 20, 20, 20', Android='5', iOS='10', MacCatalyst='30'}">
+        <chart:SfCartesianChart Margin="5">
+            <chart:SfCartesianChart.Resources>
+                <local:Converter x:Key="converter" />
+                <DataTemplate x:Key="tooltip">
+                    <VerticalStackLayout>
+                        <Label Text="{Binding Item.Month,StringFormat='{0:MMMM dd, yyyy}'}"
+					   TextColor="White"
+					   FontAttributes="Bold"
+					   FontSize="12"
+					   HorizontalOptions="Center"
+					   VerticalOptions="Center"/>
+                        <BoxView WidthRequest="100" Margin="0,3,0,0" HeightRequest="1"
+                                 BackgroundColor="GhostWhite" />
+                        <HorizontalStackLayout >
+                            <Path Data="{Binding Item.Path}"  Scale="0.65"  
+                                  Fill="{Binding Item.FillPath}"/>
+                            <Label Text="{Binding Item.EmploymentPercent, StringFormat='{0:0.##}%'}"
+					               TextColor="White" FontSize="12" Margin="0,-5,0,0"
+					                   HorizontalOptions="Center"  VerticalOptions="Center"/>
+                            <Label Text=" : " TextColor="White" FontSize="12"
+                                   Margin="0,-5,0,0" HorizontalOptions="Center"
+                                   VerticalOptions="Center"/>
+                            <Label Text="{Binding Item.EmploymentCount,Converter={StaticResource converter}}"
+                                   TextColor="White" FontSize="12" Margin="0,-5,0,0"
+                                   HorizontalOptions="Center"  VerticalOptions="Center"/>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                </DataTemplate>
+            </chart:SfCartesianChart.Resources>
+            <chart:SfCartesianChart.Title>
+                <Grid >
+                    <HorizontalStackLayout Margin="{OnPlatform Default='10' ,iOS='5',Android='2'}" 
+                                           HorizontalOptions="Center" VerticalOptions="Center">
+                        <Image Source="growth.png"  HeightRequest="40" WidthRequest="40"/>
+                        <Label  TextColor="Black" FontFamily="TimeSpan" 
+                                FontSize="{OnPlatform WinUI='20',Default='20', Android='16', iOS='16'}"
+                                FontAttributes="Bold" HorizontalOptions="Center" 
+                                Margin="{OnPlatform Default='0,8,0,0',Android='0,4,0,0',iOS='0,4,0,0'}" 
+                                VerticalTextAlignment="Center"
+                      Text="Analysis the Wage Trends in the Texas Oil Gas Extraction Industry" />
+                    </HorizontalStackLayout>
+                </Grid>
+            </chart:SfCartesianChart.Title>
+            <chart:SfCartesianChart.BindingContext>
+                <local:OilGasEmploymentViewModel/>
+            </chart:SfCartesianChart.BindingContext>
+
+            <chart:SfCartesianChart.XAxes>
+                <chart:DateTimeAxis ShowMajorGridLines="False" RenderNextToCrossingValue="True"
+                               CrossesAt="0" ShowMinorGridLines="False" >
+                    <chart:DateTimeAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle Stroke="LightGray" StrokeWidth="1"/>
+                    </chart:DateTimeAxis.MajorTickStyle>
+                </chart:DateTimeAxis>
+            </chart:SfCartesianChart.XAxes>
+
+            <chart:SfCartesianChart.YAxes>
+
+                <chart:NumericalAxis  ShowMajorGridLines="False" CrossesAt="{Binding CrossesAt}"
+                                  RenderNextToCrossingValue="True" ShowMinorGridLines="False" 
+                                  Minimum="-20" Maximum="20"
+                                  x:Name="yAxis">
+                    <chart:NumericalAxis.MajorTickStyle>
+                        <chart:ChartAxisTickStyle StrokeWidth="1" Stroke="LightGray"/>
+                    </chart:NumericalAxis.MajorTickStyle>
+                    <chart:NumericalAxis.LabelStyle>
+                        <chart:ChartAxisLabelStyle LabelFormat="0' %"/>
+                    </chart:NumericalAxis.LabelStyle>
+                </chart:NumericalAxis>
+
+            </chart:SfCartesianChart.YAxes>
+            <chart:SfCartesianChart.TooltipBehavior>
+                <chart:ChartTooltipBehavior Duration="3" />
+            </chart:SfCartesianChart.TooltipBehavior>
+            
+            <chart:LineSeries StrokeWidth="2" ItemsSource="{Binding EmploymentDetails}" 
+                              EnableTooltip="True" PaletteBrushes="{Binding CustomBrushes}" 
+                              XBindingPath="Month"  YBindingPath="EmploymentPercent"
+                              TooltipTemplate="{StaticResource tooltip}" >
+            </chart:LineSeries>
+
+        </chart:SfCartesianChart>
+    </Border>
+</ContentPage>
