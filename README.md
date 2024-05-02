@@ -17,4 +17,5 @@ The LabelFormat property in the label style of a Syncfusion .NET MAUI chart axis
 ### Display grid lines
 The ShowMajorGridLines and ShowMinorGridLines properties control the visibility of the major and minor grid lines on the chart axis, respectively. When set to true, these properties display grid lines along the major and minor tick marks of the axis, providing visual reference points to help interpret the data plotted on the chart. When set to false, the grid lines are hidden. Adjusting these properties allows you to control the appearance of the grid lines based on your specific chart design and requirements
 
+### Output
 ![OutputImage](https://github.com/SyncfusionExamples/Creating-a-Line-Chart-to-Analysis-the-Wage-Trends-in-Texas-Oil-Gas-Extraction-Industry/assets/105482474/c8593c82-cbca-492b-9bdd-a621880c2017)
