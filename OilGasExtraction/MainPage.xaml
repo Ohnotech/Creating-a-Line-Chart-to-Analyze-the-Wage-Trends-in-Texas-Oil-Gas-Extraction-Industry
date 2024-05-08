@@ -50,7 +50,7 @@
                                 FontAttributes="Bold" HorizontalOptions="Center" 
                                 Margin="{OnPlatform Default='0,8,0,0',Android='0,4,0,0',iOS='0,4,0,0'}" 
                                 VerticalTextAlignment="Center"
-                      Text="Analysis the Wage Trends in the Texas Oil Gas Extraction Industry" />
+                      Text="Analyze the Wage Trends in the Texas Oil Gas Extraction Industry" />
                     </HorizontalStackLayout>
                 </Grid>
             </chart:SfCartesianChart.Title>

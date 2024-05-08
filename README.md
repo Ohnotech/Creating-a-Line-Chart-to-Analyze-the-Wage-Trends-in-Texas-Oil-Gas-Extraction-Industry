@@ -1,7 +1,7 @@
-# Creating a Line Chart to Analysis the Wage Trends in Texas Oil Gas Extraction Industry
+# Creating a Line Chart to Analyze the Wage Trends in Texas Oil Gas Extraction Industry
 This blog demonstrates the trend of employed individuals in the Texas Oil Gas Extraction Industry over the past fifteen years using a Syncfusion .NET MAUI Line Chart.
 
-Line chart is used to represent the data trends at equal intervals by connecting points on a plot with straight lines. Here, we have analyse percentage of employment growth or decline over the last fifteen years in the Texas Oil Gas Extraction Industry.
+Line chart is used to represent the data trends at equal intervals by connecting points on a plot with straight lines. Here, we have analyze percentage of employment growth or decline over the last fifteen years in the Texas Oil Gas Extraction Industry.
 
 ## Customizing axis
 
@@ -18,4 +18,4 @@ The LabelFormat property in the label style of a Syncfusion .NET MAUI chart axis
 The ShowMajorGridLines and ShowMinorGridLines properties control the visibility of the major and minor grid lines on the chart axis, respectively. When set to true, these properties display grid lines along the major and minor tick marks of the axis, providing visual reference points to help interpret the data plotted on the chart. When set to false, the grid lines are hidden. Adjusting these properties allows you to control the appearance of the grid lines based on your specific chart design and requirements
 
 ### Output
-![OutputImage](https://github.com/SyncfusionExamples/Creating-a-Line-Chart-to-Analysis-the-Wage-Trends-in-Texas-Oil-Gas-Extraction-Industry/assets/105482474/c8593c82-cbca-492b-9bdd-a621880c2017)
+<img width="938" alt="OilGasExtractionOutput" src="https://github.com/SyncfusionExamples/Creating-a-Line-Chart-to-Analysis-the-Wage-Trends-in-Texas-Oil-Gas-Extraction-Industry/assets/105482474/63fc13d2-ae47-49af-8da8-c58f93fe3393">
